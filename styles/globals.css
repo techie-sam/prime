@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.form-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.25rem 0.5rem;
+    margin-top: -1.25rem;
+    font-size: 0.75rem;
+    line-height: 1;
+    color: #a0aec0;
+    transition: all 0.2s;
+}
+
+.form-input:focus+.form-label,
+.form-input:not(:placeholder-shown)+.form-label {
+    padding: 0.25rem 0;
+    margin-top: -1.5rem;
+    font-size: 0.5rem;
+    line-height: 1;
+    color: #4a5568;
+}
