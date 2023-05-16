@@ -9,8 +9,8 @@ const BottomNav = () => {
         { icon: "", text: "Profile" }
     ]
     return (
-        <nav className="fixed bottom-0 w-full border border-red-500">
-            <ul className="flex justify-evenly brder">
+        <nav className="fixed block sm:hidden bottom-0 w-full border border-red-500">
+            <ul className="flex justify-evenly ">
                 {
                     bottomNavContent.map(({ icon, text }) =>
                         <li key={text}>
