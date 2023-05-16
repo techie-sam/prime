@@ -37,7 +37,7 @@ const SignUp = ({ formDetails }) => {
                 <hr />OR<hr />
               </div>
 
-              <button className='bg-[#b7778c] hover:bg-[#f7c4d5] font-semibold w-full rounded p-3 dark:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A10035]' >
+              <button className='bg-[#b7778c] hover:bg-[#f76d9b] font-semibold w-full rounded p-3 dark:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A10035]' >
                 Sign up with Google
               </button>
 
