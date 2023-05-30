@@ -11,7 +11,7 @@ const Signin = ({ formDetails }) => {
                 Welcome Back
               </h1>
 
-              {/* Signup Form */}
+              {/*================ SignIn Form =================*/}
               <form className="space-y-4 md:space-y-6" action="#">
                 {
                   formDetails.map(({ name, type, placeholder }) =>
@@ -20,6 +20,7 @@ const Signin = ({ formDetails }) => {
                       <input
                         key={name}
                         type={type}
+                        name={name}
                         className="block min-h-[auto] w-full rounded bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear dark:text-white ring-gray-400 ring-1 focus:ring-2 focus:ring-[#A10035] focus:border-transparent "
                         id={name}
                         placeholder={placeholder} />
