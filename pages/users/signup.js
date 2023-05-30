@@ -20,6 +20,7 @@ const SignUp = ({ formDetails }) => {
               {/*=============== Signup Form ==================*/}
               <Formik
                 initialValues={{ firstName: '', lastName: '', email: '', password: '' }}
+
                 validationSchema={Yup.object({
                   firstName: Yup.string()
                     .max(20, 'First Name must be 20 characters or less')
@@ -35,7 +36,8 @@ const SignUp = ({ formDetails }) => {
                     .required("This field is Required")
                 })}
 
-                onSubmit={(values, { setSubmitting }) => {
+                onSubmit={(values, { setSubmitting,  }) => {
+                  console.log(submitting);
                   setTimeout(() => {
                     alert(JSON.stringify(values, null, 2));
                     setSubmitting(false);
@@ -61,6 +63,7 @@ const SignUp = ({ formDetails }) => {
                   }
                   <button type="submit" className='bg-[#A10035] hover:bg-[#fb1361] font-semibold w-full rounded p-3 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A10035]' >
                     SIGN UP
+                    {/* {submitting? "....":"Signup"} */}
                   </button>
                 </Form>
               </Formik>
