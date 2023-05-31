@@ -1,10 +1,9 @@
 import { ErrorMessage, Field, Form, Formik, useFormik } from "formik"
 import Link from "next/link"
 import * as Yup from 'yup';
+import axios from "axios";
 
 const SignUp = ({ formDetails }) => {
-
-
 
   return (
     <>
@@ -19,32 +18,40 @@ const SignUp = ({ formDetails }) => {
 
               {/*=============== Signup Form ==================*/}
               <Formik
+
                 initialValues={{ firstName: '', lastName: '', email: '', password: '' }}
 
                 validationSchema={Yup.object({
                   firstName: Yup.string()
                     .max(20, 'First Name must be 20 characters or less')
-                    .required('First Name is required'),
+                    .required('First Name is required')
+                    .trim(),
                   lastName: Yup.string()
                     .max(20, 'Last Name be 20 characters or less')
-                    .required('Last Name is required'),
+                    .required('Last Name is required')
+                    .trim(),
                   email: Yup.string()
                     .email('Invalid email address')
-                    .required('Valid email address is required'),
+                    .required('Valid email address is required')
+                    .trim(),
                   password: Yup.string()
                     .min(9, 'Minimum Password of 8 characters is required ')
                     .required("This field is Required")
+                    .trim(),
                 })}
 
-                onSubmit={(values, { setSubmitting,  }) => {
-                  console.log(submitting);
-                  setTimeout(() => {
-                    alert(JSON.stringify(values, null, 2));
-                    setSubmitting(false);
-                  }, 100);
+                onSubmit={(values, { setSubmitting, }) => {
+                  axios.post('/api/user/signup', values)
+                    .then(res => {
+                      console.log(res);
+                    })
+                    .catch(error => {
+                      console.log(error);
+                    });
+                  setSubmitting(false);
                 }}
               >
-                <Form className="space-y-4 md:space-y-6" action="#">
+                <Form className="space-y-4 md:space-y-6">
                   {
                     formDetails.map(({ name, type, placeholder }) =>
                       <div key={name} className="relative mb-6 ">
