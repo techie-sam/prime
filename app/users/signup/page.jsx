@@ -1,17 +1,30 @@
+'use client'
 import { ErrorMessage, Field, Form, Formik, useFormik } from "formik"
 import Link from "next/link"
 import * as Yup from 'yup';
 import axios from "axios";
+import { useState } from "react";
 
-const SignUp = ({ formDetails }) => {
 
+const formDetails = [
+  { name: "firstName", type: "text", placeholder: "Firstname" },
+  { name: "lastName", type: "text", placeholder: "Lastname" },
+  { name: "email", type: "email", placeholder: "Email Address" },
+  { name: "password", type: "password", placeholder: "Password" },
+]
+
+const SignUp = () => {
+  const [error, setError] = useState(null)
   return (
     <>
+
       <section className="bg-gray-200 dark:bg-gray-900">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0">
           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-
+              {
+                error && (error.response.data.error)
+              }
               <h1 className="text-xl text-center leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Create Account
               </h1>
@@ -45,7 +58,8 @@ const SignUp = ({ formDetails }) => {
                     .then(res => {
                       console.log(res);
                     })
-                    .catch(error => {
+                    .catch(err => {
+                      setError((error) => err)
                       console.log(error);
                     });
                   setSubmitting(false);
@@ -62,7 +76,7 @@ const SignUp = ({ formDetails }) => {
                           className="block min-h-[auto] w-full rounded bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear dark:text-white ring-gray-400 ring-1 focus:ring-2 focus:ring-[#A10035] focus:border-transparent"
                           id={name}
                           placeholder={placeholder} />
-                        <small className="dark:text-red-500">
+                        <small className="text-red-500">
                           <ErrorMessage name={name} />
                         </small>
                       </div>
@@ -94,21 +108,6 @@ const SignUp = ({ formDetails }) => {
 
     </>
   )
-}
-export function getStaticProps() {
-
-  const formDetails = [
-    { name: "firstName", type: "text", placeholder: "Firstname" },
-    { name: "lastName", type: "text", placeholder: "Lastname" },
-    { name: "email", type: "email", placeholder: "Email Address" },
-    { name: "password", type: "password", placeholder: "Password" },
-  ]
-
-  return {
-    props: {
-      formDetails
-    }
-  }
 }
 
 export default SignUp

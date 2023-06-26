@@ -1,8 +1,17 @@
+'use client'
 import { ErrorMessage, Field, Form, Formik, useFormik } from "formik"
 import * as Yup from 'yup';
 import Link from "next/link"
 
-const Signin = ({ formDetails }) => {
+
+const formDetails = [
+  { name: "email", type: "email", placeholder: "Email Address" },
+  { name: "password", type: "password", placeholder: "Password" },
+]
+
+
+
+const SignIn = () => {
   return (
     <>
       <section className="bg-gray-200 dark:bg-gray-900">
@@ -26,10 +35,7 @@ const Signin = ({ formDetails }) => {
                 })}
 
                 onSubmit={(values, { setSubmitting }) => {
-                  setTimeout(() => {
-                    alert(JSON.stringify(values, null, 2));
-                    setSubmitting(false);
-                  }, 100);
+                  fetch()
                 }}
               >
                 <Form className="space-y-4 md:space-y-6" action="#">
@@ -44,7 +50,7 @@ const Signin = ({ formDetails }) => {
                           className="block min-h-[auto] w-full rounded bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear dark:text-white ring-gray-400 ring-1 focus:ring-2 focus:ring-[#A10035] focus:border-transparent "
                           id={name}
                           placeholder={placeholder} />
-                        <small className="dark:text-red-500">
+                        <small className="text-red-500">
                           <ErrorMessage name={name} />
                         </small>
                       </div>
@@ -72,18 +78,4 @@ const Signin = ({ formDetails }) => {
     </>
   )
 }
-
-export function getStaticProps() {
-
-  const formDetails = [
-    { name: "email", type: "email", placeholder: "Email Address" },
-    { name: "password", type: "password", placeholder: "Password" },
-  ]
-
-  return {
-    props: {
-      formDetails
-    }
-  }
-}
-export default Signin
+export default SignIn
