@@ -4,7 +4,7 @@ import Link from "next/link"
 import * as Yup from 'yup';
 import axios from "axios";
 import { useState } from "react";
-import SignUpForm from "@/components/SignupForm";
+import SignUpForm from "@/components/users/SignupForm";
 
 
 const formDetails = [
@@ -33,7 +33,7 @@ const SignUp = () => {
               <SignUpForm />
 
               {/*=============== Signup Form ==================*/}
-              
+
               <div className="flex justify-between dark:text-white">
                 <hr />OR<hr />
               </div>
@@ -43,7 +43,7 @@ const SignUp = () => {
               </button>
 
               <div className="dark:text-white text-sm text-center">
-                <Link href="/users/signin" >Already Have an Account? <span className="text-[#A10035]">Sign In </span></Link>
+                <Link href="/users/login" >Already Have an Account? <span className="text-[#A10035]">Log In</span></Link>
               </div>
             </div>
           </div>

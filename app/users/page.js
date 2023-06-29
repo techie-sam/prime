@@ -1,3 +1,5 @@
+
+'use client'
 import BottomNav from "@/components/BottomNav";
 import SideBar from "@/components/SideBar";
 import { useState } from "react";

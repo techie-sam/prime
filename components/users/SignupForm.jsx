@@ -46,7 +46,6 @@ const SignUpForm = () => {
                 }, body: JSON.stringify(values)
             }))
                 .json()
-        console.log(res)
         if (res.status === 200) {
             alert("Logged In")
             setSubmitting(false)
