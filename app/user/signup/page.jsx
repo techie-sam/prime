@@ -20,7 +20,7 @@ const SignUp = () => {
     <>
 
       <section className="bg-gray-200 dark:bg-gray-900">
-        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0">
+        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto min-h-screen lg:py-0">
           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
               {/* <span className="">{error}</span> */}
@@ -28,11 +28,11 @@ const SignUp = () => {
                 Create Account
               </h1>
 
-              {/*=============== Signup Form ==================*/}
+              {/*=============== Sign Up Form ==================*/}
 
               <SignUpForm />
 
-              {/*=============== Signup Form ==================*/}
+              {/*=============== Sign Up Form ==================*/}
 
               <div className="flex justify-between dark:text-white">
                 <hr />OR<hr />
@@ -43,7 +43,7 @@ const SignUp = () => {
               </button>
 
               <div className="dark:text-white text-sm text-center">
-                <Link href="/users/login" >Already Have an Account? <span className="text-[#A10035]">Log In</span></Link>
+                <Link href="/user/login" >Already Have an Account? <span className="text-[#A10035]">Log In</span></Link>
               </div>
             </div>
           </div>

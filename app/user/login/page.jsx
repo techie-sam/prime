@@ -1,6 +1,4 @@
 'use client'
-import { ErrorMessage, Field, Form, Formik, useFormik } from "formik"
-
 import Link from "next/link"
 import LoginForm from "@/components/users/LoginForm";
 
@@ -20,17 +18,17 @@ const SignIn = () => {
               </h1>
 
               {/*================ LogIn Form =================*/}
+
               <LoginForm />
+
               {/*================ LogIn Form =================*/}
-
-
 
               <div className="dark:text-white text-sm text-center hover:underline">
                 <Link href="/users/signup" >Forgotten Password?</Link>
               </div>
 
               <div className="dark:text-white text-sm text-center">
-                <Link href="/users/signup" >Do not Have an Account? <span className="text-[#A10035]">SignUp </span></Link>
+                <Link href="/user/signup" >Do not Have an Account? <span className="text-[#A10035]">SignUp </span></Link>
               </div>
 
 

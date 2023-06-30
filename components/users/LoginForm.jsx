@@ -1,4 +1,3 @@
-'use client'
 import { ErrorMessage, Field, Form, Formik } from 'formik'
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -34,7 +33,7 @@ const LoginForm = () => {
         if (res.status === 'success') {
             // alert("Logged In")
             setSubmitting(false)
-            router.push('/users/')
+            router.push('/user/')
             console.log(res)
         } else {
             setSubmitting(false)
